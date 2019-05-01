@@ -69,6 +69,7 @@ You will be asked the following information when creating a project:
      "project_short_description": "Your project description goes in here",
      "version": "0.1.0",
      "open_source_license": ["MIT", "BSD", "ISCL", "Apache Software License 2.0", "Not open source"] (Choose MIT for hackoregon projects)
+     "gis_project": "True"
    }
 
 Explanation
@@ -85,6 +86,7 @@ Explanation
 -  project_short_description: A brief description of the project
 -  version: initial version of the app, should be 0.1.0 if new project
 -  open_source_license: Type of License to apply
+-  gis_project: Boolean as to whether to include django-restframework-gis package in setup.py dependencies
 
 Example
 ~~~~~~~
