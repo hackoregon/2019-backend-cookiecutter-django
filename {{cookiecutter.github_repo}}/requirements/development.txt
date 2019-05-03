@@ -1,0 +1,3 @@
+# Imports common.txt packages
+-r common.txt
+-e ../{{cookiecutter.python_package_namespace}}
