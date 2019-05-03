@@ -49,7 +49,7 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
-    name='{{ cookiecutter.github_repo }}',
+    name='{{ cookiecutter.python_package_namespace }}',
     version=version,
     description="""{{ cookiecutter.project_short_description }}""",
     long_description=readme + '\n\n' + history,
