@@ -1,18 +1,18 @@
 version: '3.4'
 services:
-  api_development:
+  api:
     build:
       context: .
-      dockerfile: DOCKERFILE.api.development
-    image: api_development
-    command: ./bin/development-docker-entrypoint.sh
+      dockerfile: DOCKERFILE
+    image: api
+    command: ./bin/docker-entrypoint.sh
     volumes:
-      - .:/code
+      - .:/code/src_files/
     ports:
       - "8000:8000"
     environment:
       - PROJECT_NAME
-      - DEBUG=True
+      - DEBUG=${DEBUG}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_NAME=${POSTGRES_NAME}
       - POSTGRES_HOST=${POSTGRES_HOST}

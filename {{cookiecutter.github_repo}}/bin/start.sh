@@ -6,10 +6,12 @@ if [ $# == 0 ]; then usage; fi
 while getopts ":dp" opt; do
     case "$opt" in
         d)
-          docker-compose -f development-docker-compose.yml up
+          DEBUG=true
+          docker-compose up
           ;;
         p)
-          docker-compose -f production-docker-compose.yml up
+          DEBUG=false
+          docker-compose up
           ;;
         *)
           usage

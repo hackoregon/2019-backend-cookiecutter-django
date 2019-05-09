@@ -1,12 +1,12 @@
+## These settings will overrid any default settings set in the standard Django app and the `hacko_settings.py` included in docker container
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DEBUG', False))
+DEBUG = (os.environ.get('DEBUG').lower() == "true")
 
 ALLOWED_HOSTS = ['*']
 
@@ -35,37 +35,9 @@ DATABASES = {
         'USER': os.environ.get('POSTGRES_USER'),
         'HOST': os.environ.get('POSTGRES_HOST'),
         'PORT': os.environ.get('POSTGRES_PORT')
-    },
-    'passenger_census': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'OPTIONS': {
-                'options': '-c search_path=django,passenger_census'
-            },
-        'NAME': os.environ.get('POSTGRES_NAME'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'HOST': os.environ.get('POSTGRES_HOST'),
-        'PORT': os.environ.get('POSTGRES_PORT')
     }
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/{{cookiecutter.python_package_namespace}}/static/'
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        }
-    },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    }
-}
