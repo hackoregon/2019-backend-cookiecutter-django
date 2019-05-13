@@ -52,6 +52,8 @@ def check_paths(paths):
 
 def test_default_configuration(cookies, context):
     result = cookies.bake(extra_context=context)
+    print(context)
+    print(result)
     assert result.exit_code == 0
     assert result.exception is None
     assert result.project.basename == context["github_repo"]
