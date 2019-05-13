@@ -1,6 +1,7 @@
 FROM hackoregoncivic/backend-docker-django-dev
 MAINTAINER Brian H. Grant <brian@hackoregon.org> & "M. Edward (Ed) Borasky <ed.borasky@hackoregon.org>
 ENV PYTHONUNBUFFERED 1
+ARG DEBUG=false
 
 WORKDIR /code
 
