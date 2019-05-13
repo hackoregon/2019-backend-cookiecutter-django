@@ -12,7 +12,7 @@ To use {{ cookiecutter.python_package_namespace }}.{{ cookiecutter.python_subpac
         ...
     )
 
-Add {{ cookiecutter.python_package_namespace }}.{{ cookiecutter.project_name }}'s URL patterns:
+Add {{ cookiecutter.python_package_namespace }}.{{ cookiecutter.python_subpackage }}'s URL patterns:
 
 .. code-block:: python
 
