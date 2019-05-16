@@ -59,9 +59,7 @@ setup(
     url='https://github.com/hackoregon/{{ cookiecutter.github_repo }}',
     packages=setuptools.find_namespace_packages(include=['namespace.*']),
     include_package_data=True,
-{%- if cookiecutter.open_source_license in license_classifiers %}
-    license="{{ cookiecutter.open_source_license }}",
-{%- endif %}
+    license="MIT",
     zip_safe=False,
     keywords='{{ cookiecutter.github_repo }}',
     install_requires=[

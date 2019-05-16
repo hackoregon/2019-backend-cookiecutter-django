@@ -22,7 +22,6 @@ def context():
       "python_subpackage": "toad",
       "project_short_description": "Your project description goes in here",
       "version": "0.1.0",
-      "open_source_license": ["MIT", "BSD", "ISCL", "Apache Software License 2.0", "Not open source"],
       "gis_project": True
     }
 

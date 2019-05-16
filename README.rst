@@ -41,7 +41,7 @@ To generate a new repo:
 
 ::
 
-   $ cookiecutter gh:hackoregon/backend-cookiecutter-django --checkout BRANCH
+   $ cookiecutter gh:hackoregon/2019-backend-cookiecutter-django --checkout BRANCH
 
 You can leave out the ``--checkout BRANCH`` if checking out from MASTER.
 
@@ -68,7 +68,6 @@ You will be asked the following information when creating a project:
      "python_subpackage": "toad",
      "project_short_description": "Your project description goes in here",
      "version": "0.1.0",
-     "open_source_license": ["MIT", "BSD", "ISCL", "Apache Software License 2.0", "Not open source"] (Choose MIT for hackoregon projects)
      "gis_project": "True"
    }
 
@@ -85,7 +84,6 @@ Explanation
 -  python_subpackage: Name of the Django Rest Framework subpackage for project code. Cookiecutter will generate a single subpackage, though project may have multiple subpackages
 -  project_short_description: A brief description of the project
 -  version: initial version of the app, should be 0.1.0 if new project
--  open_source_license: Type of License to apply
 -  gis_project: Boolean as to whether to include django-restframework-gis package in setup.py dependencies
 
 Example

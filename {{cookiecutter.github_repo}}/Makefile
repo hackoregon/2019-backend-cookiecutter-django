@@ -31,29 +31,26 @@ lint: ## check style with flake8
 	flake8 {{ cookiecutter.python_package_namespace }}/{{ cookiecutter.python_subpackage}} tests
 
 test: ## run tests quickly with the default Python
-	python runtests.py tests
+	pytest tests
 
-test-all: ## run tests on every Python version with tox
-	tox
+# coverage: ## check code coverage quickly with the default Python
+# 	coverage run --source {{ cookiecutter.python_package_namespace }}/{{ cookiecutter.python_subpackage}} pytest tests
+# 	coverage report -m
+# 	coverage html
+# 	open htmlcov/index.html
 
-coverage: ## check code coverage quickly with the default Python
-	coverage run --source {{ cookiecutter.python_package_namespace }}/{{ cookiecutter.python_subpackage}} runtests.py tests
-	coverage report -m
-	coverage html
-	open htmlcov/index.html
-
-docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/{{ cookiecutter.github_repo }}.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ {{ cookiecutter.python_package_namespace }}/{{ cookiecutter.python_subpackage}}
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
-	$(BROWSER) docs/_build/html/index.html
-
-release: clean ## package and upload a release
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
-
-sdist: clean ## package
-	python setup.py sdist
-	ls -l dist
+# docs: ## generate Sphinx HTML documentation, including API docs
+# 	rm -f docs/{{ cookiecutter.github_repo }}.rst
+# 	rm -f docs/modules.rst
+# 	sphinx-apidoc -o docs/ {{ cookiecutter.python_package_namespace }}/{{ cookiecutter.python_subpackage}}
+# 	$(MAKE) -C docs clean
+# 	$(MAKE) -C docs html
+# 	$(BROWSER) docs/_build/html/index.html
+#
+# release: clean ## package and upload a release
+# 	python setup.py sdist upload
+# 	python setup.py bdist_wheel upload
+#
+# sdist: clean ## package
+# 	python setup.py sdist
+# 	ls -l dist
