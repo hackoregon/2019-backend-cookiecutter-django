@@ -13,9 +13,9 @@ volunteers, and all the work we do is open source.
 
 # Features
 
-  - Tox configuration
+  - Pytest testing
   - Sane setup.py for easy PyPI registration/distribution
-  - Choice of Open Source License options
+  - MIT Open Source License
   - Standard templates for README, issues and pull requests,
     Contribution guidelines
 
