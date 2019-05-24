@@ -45,15 +45,15 @@ if sys.argv[-1] == 'tag':
     os.system("git push --tags")
     sys.exit()
 
-readme = open('README.rst').read()
-history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+readme = open('README.md').read()
+history = open('CHANGELOG.md').read()
 
 setup(
     name='{{ cookiecutter.python_package_namespace }}',
     version=version,
     description="""{{ cookiecutter.project_short_description }}""",
     long_description=readme + '\n\n' + history,
-    long_description_content_type='text/x-rst',
+    long_description_content_type='text/x-md',
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
     url='https://github.com/hackoregon/{{ cookiecutter.github_repo }}',
