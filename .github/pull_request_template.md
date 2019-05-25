@@ -2,7 +2,8 @@
 
 - [ ] Tests for the changes have been added (for bug fixes / features)
 - [ ] Docs have been added / updated (for bug fixes / features)
-- [ ] Included your name and github handle in the authors.rst - Contributors section
+- [ ] Included your name and github handle in the contributors.md - Contributors section
+- [ ] Major/Breaking Changes are listed in Changelog
 
 * **What kind of change does this PR introduce?** (Bug fix, feature, docs update, ...)
 

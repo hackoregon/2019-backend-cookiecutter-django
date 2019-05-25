@@ -83,8 +83,6 @@ You will be asked the following information when creating a project:
   - gis_project: Boolean as to whether to include
     django-restframework-gis package in setup.py dependencies
 
-## Example
-
 # Tests
 
 To run tests on the Cookiecutter generation, please install TOX, which
@@ -104,3 +102,17 @@ Then just run:
 ```
 tox
 ```
+
+# Development
+
+To help contribute to the project:
+
+* Open a github issue to track your Contribution
+* Clone repo and create a feature BRANCH
+* Make your changes
+* Create passing tests in TOX
+* Update Documentation
+* Update Changelog with your changes, and add yourself to Contributors in contributors.md, if not already there.
+* Create a PR using Pull request template (be sure to link to github issues)
+* Receive at least 1 +1 from a project team member before merging.
+* Profit
