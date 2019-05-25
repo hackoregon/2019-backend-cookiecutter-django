@@ -30,6 +30,8 @@ $ pip install cookiecutter
 
 # Usage
 
+A more in-depth Training and User Guide is available [here](trainingdocs/TrainingGuide,pdf)
+
 To generate a new repo:
 
     $ cookiecutter gh:hackoregon/2019-backend-cookiecutter-django --checkout BRANCH
