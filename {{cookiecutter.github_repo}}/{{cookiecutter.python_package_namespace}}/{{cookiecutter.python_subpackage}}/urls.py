@@ -11,6 +11,5 @@ schema_view = get_swagger_view(title='{{cookiecutter.hack_oregon_team}} {{cookie
 
 urlpatterns = [
     url(r'^schema/', schema_view),
-    url
     url(r'^{{cookiecutter.python_subpackage}}/', include(router.urls)),
 ]
