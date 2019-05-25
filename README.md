@@ -15,7 +15,7 @@ volunteers, and all the work we do is open source.
 
   - Pytest testing
   - Sane setup.py for easy PyPI registration/distribution
-  - MIT Open Source License
+  - MIT Open Source Licensed
   - Standard templates for README, issues and pull requests,
     Contribution guidelines
 
