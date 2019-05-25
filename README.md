@@ -1,5 +1,7 @@
 # backend-cookiecutter-django
 
+[![Build Status](https://travis-ci.org/hackoregon/2019-backend-cookiecutter-django.svg?branch=master)](https://travis-ci.org/hackoregon/2019-backend-cookiecutter-django)
+
 A cookiecutter template for creating reusable Django REST Framework
 packages with the best practices quickly. This template is customized to
 provide structure for quickstarting a Hack Oregon civic data project.
