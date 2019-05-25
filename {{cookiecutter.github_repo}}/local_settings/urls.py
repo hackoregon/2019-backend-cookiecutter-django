@@ -5,7 +5,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 router = DefaultRouter()
 
-schema_view = get_swagger_view(title='{{cookiecutter.hack_oregon_team}} {{cookiecutter.year}} API')
+schema_view = get_swagger_view(title='Hack Oregon {{cookiecutter.hack_oregon_team}} {{cookiecutter.year}} API')
 
 
 urlpatterns = [
