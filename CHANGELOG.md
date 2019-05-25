@@ -10,12 +10,13 @@ branch, merges back to master will be tagged and annotated here.
 
 ## [2019-05-25]
 
-### Tag: 0.1.0
+### Tag: 0.2.0
 
 #### Added
 
 - Bug Fixes
 - Moved from rst based to Markdown based documentation (Based on Hack Oregon policy)
+- Example testing with pytest. Removed tox from project as adds unneeded complexity
 
 ## [2019-04-29]
 

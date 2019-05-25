@@ -5,3 +5,4 @@
 -e ./{{cookiecutter.python_package_namespace}}
 
 pytest
+bumpversion
