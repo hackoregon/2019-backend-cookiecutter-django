@@ -1,6 +1,5 @@
-|
---------------------------------------------- |
-{{ cookiecutter.python_package_namespace }} |
+|---------------------------------------------|
+|{{ cookiecutter.python_package_namespace }}|
 
 [![image](<https://badge.fury.io/py/>{{ cookiecutter.github_repo
 }}.svg)](<https://badge.fury.io/py/>{{ cookiecutter.github_repo }})

@@ -65,12 +65,12 @@ def test_default_configuration(cookies, context):
 def test_readme(cookies):
     result = cookies.bake()
 
-    readme_file = result.project.join('README.rst')
+    readme_file = result.project.join('README.md')
     readme_lines =[]
     with open(readme_file) as f:
         readme_lines.extend(f.readline() for x in range(2))
 
     assert readme_lines == [
-        '=============================\n',
-        'hackoregon_transportation_systems\n'
+        '|---------------------------------------------|\n',
+        '|hackoregon_transportation_systems|\n'
     ]
