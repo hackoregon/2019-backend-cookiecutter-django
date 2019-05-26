@@ -1,0 +1,20 @@
+FROM hackoregoncivic/backend-docker-django
+MAINTAINER Brian H. Grant <brian@hackoregon.org> & "M. Edward (Ed) Borasky <ed.borasky@hackoregon.org>
+ENV PYTHONUNBUFFERED 1
+ARG DEBUG=false
+
+WORKDIR /code
+
+COPY /requirements/* /code/
+COPY {{cookiecutter.python_package_namespace}} /code/{{cookiecutter.python_package_namespace}}
+
+RUN if [ "$DEBUG" = true  ] ; then pip install -r development.txt ; else pip install -r production.txt ; fi
+
+RUN python
+
+RUN mkdir src_files
+
+COPY bin /code/src_files/bin/
+RUN chmod +x *.py
+
+ENTRYPOINT [ "/code/src_files/bin/docker-entrypoint.sh" ]

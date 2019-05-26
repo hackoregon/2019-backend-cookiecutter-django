@@ -1,0 +1,8 @@
+# Imports common.txt packages
+-r common.txt
+
+# Import local package in development mode
+-e ./{{cookiecutter.python_package_namespace}}
+
+pytest
+bumpversion

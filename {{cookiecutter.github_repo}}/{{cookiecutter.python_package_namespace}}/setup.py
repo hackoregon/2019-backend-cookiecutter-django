@@ -45,23 +45,21 @@ if sys.argv[-1] == 'tag':
     os.system("git push --tags")
     sys.exit()
 
-readme = open('README.rst').read()
-history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+readme = open('README.md').read()
+history = open('CHANGELOG.md').read()
 
 setup(
-    name='{{ cookiecutter.github_repo }}',
+    name='{{ cookiecutter.python_package_namespace }}',
     version=version,
     description="""{{ cookiecutter.project_short_description }}""",
     long_description=readme + '\n\n' + history,
-    long_description_content_type='text/x-rst',
+    long_description_content_type='text/x-md',
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
     url='https://github.com/hackoregon/{{ cookiecutter.github_repo }}',
     packages=setuptools.find_namespace_packages(include=['namespace.*']),
     include_package_data=True,
-{%- if cookiecutter.open_source_license in license_classifiers %}
-    license="{{ cookiecutter.open_source_license }}",
-{%- endif %}
+    license="MIT",
     zip_safe=False,
     keywords='{{ cookiecutter.github_repo }}',
     install_requires=[
@@ -80,5 +78,6 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7'
     ],
 )
