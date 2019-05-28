@@ -11,7 +11,6 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - PROJECT_NAME
       - DEBUG=${DEBUG}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_NAME=${POSTGRES_NAME}

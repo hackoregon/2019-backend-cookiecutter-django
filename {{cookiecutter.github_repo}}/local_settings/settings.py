@@ -1,4 +1,4 @@
-## These settings will overrid any default settings set in the standard Django app and the `hacko_settings.py` included in docker container
+# These settings will override any default settings set in the standard Django app and the `hacko_settings.py` included in docker container
 
 import os
 
@@ -22,10 +22,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_gis',
     'rest_framework_swagger',
-    '{{cookiecutter.python_package_namespace}}.{{cookiecutter.python_subpackage}}'
+    '{{cookiecutter.python_subpackage}}'
 ]
 
-DATABASE_ROUTERS = ['backend.router.ModelDatabaseRouter',]
+DATABASE_ROUTERS = ['backend.router.ModelDatabaseRouter', ]
 
 # DATABASES = {
 #     'default': {
