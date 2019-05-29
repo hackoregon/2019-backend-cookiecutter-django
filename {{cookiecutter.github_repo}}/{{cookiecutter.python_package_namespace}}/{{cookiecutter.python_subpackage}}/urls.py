@@ -5,5 +5,5 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 urlpatterns = [
-    url(r'^/', include(router.urls)),
+    url(r'^', include(router.urls)),
 ]
