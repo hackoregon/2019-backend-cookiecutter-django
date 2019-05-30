@@ -32,7 +32,7 @@ $ pip install cookiecutter
 
 # Usage
 
-A more in-depth Training and User Guide is available [here](trainingdocs/TrainingGuide,pdf)
+A more in-depth Training and User Guide is available [here](docs/training/TrainingGuide,pdf)
 
 To generate a new repo:
 
@@ -44,6 +44,10 @@ You'll be prompted for some questions, answer them, then it will create
 a backend-cookiecutter-django with your new package.
 
 At this point, you are ready to connect with an external git and start coding.
+
+## API Standards
+
+Hack Oregon API developers should refer to our [Current API Standards Guide](docs/standards/v1/STANDARDS.md) for guidance on developing APIs for Hack Oregon.
 
 ## Cookiecutter values
 
