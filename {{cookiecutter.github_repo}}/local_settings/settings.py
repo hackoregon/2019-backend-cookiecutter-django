@@ -1,4 +1,4 @@
-# These settings will overrid any default settings set in the standard Django app and the `hacko_settings.py` included in docker container
+# These settings will override any default settings set in the standard Django app and the `hacko_settings.py` included in docker container
 
 import os
 
