@@ -7,11 +7,11 @@ while getopts ":dp" opt; do
     case "$opt" in
         d)
           DEBUG=true
-          docker-compose up
+          sudo docker-compose up
           ;;
         p)
           DEBUG=false
-          docker-compose up
+          sudo docker-compose up
           ;;
         *)
           usage

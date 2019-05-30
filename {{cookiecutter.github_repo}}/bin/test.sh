@@ -7,11 +7,11 @@ while getopts ":dp" opt; do
     case "$opt" in
         d)
           DEBUG=true
-          docker-compose run --name test-api --entrypoint /code/bin/test-entrypoint.sh   --rm 
+          sudo docker-compose run --name test-api --entrypoint /code/bin/test-entrypoint.sh   --rm
           ;;
         p)
           DEBUG=false
-          docker-compose up
+          sudo docker-compose up
           ;;
         *)
           usage
