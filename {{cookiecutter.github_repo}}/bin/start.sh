@@ -7,11 +7,21 @@ while getopts ":dp" opt; do
     case "$opt" in
         d)
           DEBUG=true
-          sudo docker-compose up
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose up
+          else
+            docker-compose up
+          fi
           ;;
         p)
           DEBUG=false
-          sudo docker-compose up
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose up
+          else
+            docker-compose up
+          fi
           ;;
         *)
           usage
