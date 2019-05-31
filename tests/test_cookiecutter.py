@@ -71,6 +71,5 @@ def test_readme(cookies):
         readme_lines.extend(f.readline() for x in range(2))
 
     assert readme_lines == [
-        '|---------------------------------------------|\n',
-        '|hackoregon_transportation_systems|\n'
+        '# hackoregon_transportation_systems\n', '\n'
     ]
