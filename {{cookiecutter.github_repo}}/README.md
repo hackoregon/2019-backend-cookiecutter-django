@@ -1,6 +1,6 @@
 # {{ cookiecutter.python_package_namespace }}
 
-[![PyPI version](https://badge.fury.io/py/{{cookiecutter.github_repo}}.svg)](https://badge.fury.io/py/{{ cookiecutter.github_repo }}) | [![Build Status](https://travis-ci.org/hackoregon/{{cookiecutter.github_repo}}.svg?branch=master)](https://travis-ci.org/hackoregon/{{cookiecutter.github_repo}})
+![PyPI version](https://badge.fury.io/py/{{cookiecutter.github_repo}}.svg) | ![Build Status](https://travis-ci.org/hackoregon/{{cookiecutter.github_repo}}.svg?branch=master)
 
 {{ cookiecutter.project_short_description}}
 
