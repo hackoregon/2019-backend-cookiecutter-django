@@ -6,10 +6,20 @@ if [ $# == 0 ]; then usage; fi
 while getopts ":dp" opt; do
     case "$opt" in
         d)
-          docker-compose build --build-arg DEBUG=true api
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose build --build-arg DEBUG=true api
+          else
+            docker-compose build --build-arg DEBUG=true api
+          fi
           ;;
         p)
-          docker-compose build
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose build
+          else
+            docker-compose build
+          fi
           ;;
         *)
           usage
