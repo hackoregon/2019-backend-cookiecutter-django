@@ -7,11 +7,21 @@ while getopts ":dpb" opt; do
     case "$opt" in
         d)
           DEBUG=true
-          docker-compose up
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose up
+          else
+            docker-compose up
+          fi
           ;;
         p)
           DEBUG=false
-          docker-compose up
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose up
+          else
+            docker-compose up
+          fi
           ;;
         b)
           docker-compose run --entrypoint bash api
