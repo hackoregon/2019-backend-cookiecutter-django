@@ -24,7 +24,12 @@ while getopts ":dpb" opt; do
           fi
           ;;
         b)
-          docker-compose run --entrypoint bash api
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose run --entrypoint bash api
+          else
+            docker-compose run --entrypoint bash api
+          fi
           ;;
         *)
           usage
