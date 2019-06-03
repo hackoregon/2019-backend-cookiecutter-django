@@ -39,7 +39,8 @@ Requests and endpoints should follow a common REST-based structure.
 Request a single resource or collection of Resources
 
 * GET requests may include query parameters
-* GET requests must NOT include a request body
+* GET requests **Should Avoid** including a request body
+    - Request Bodies may be used to avoid extreme URL length
 
 #### Single Resource
 
@@ -53,13 +54,14 @@ GET /v1/stops/25fe21b8-8de2-40d0-93b0-c819101d1a11
 |---|---|---|
 | Valid Resource/Request | 200 | Resource |
 | Bad Request | 400 | Error |
+| Not Authorized | 403 | Error |
 | Not Found | 404 | Error |
 | Internal Server Error | 500 | Error |
 
 #### Collection
 
 ```
-GET /v1/stops/
+GET /v1/stops
 ```
 
 ##### Responses (Resource)
@@ -67,8 +69,9 @@ GET /v1/stops/
 |Scenario|Code|Body|
 |---|---|---|
 | Valid Resource/Request | 200 | List of Resources (All or Paginated) |
-| Valid Resource, No Results | 200 | Empty Body|
+| Valid Resource, No Results | 200 | JSON response with empty array for Resource ex: `{"data": []}`|
 | Bad Request | 400 | Error |
+| Not Authorized | 403 | Error |
 | Internal Server Error | 500 | Error |
 
 #### Recommended Technologies to Support
