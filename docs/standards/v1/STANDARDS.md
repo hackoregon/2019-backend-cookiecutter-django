@@ -309,7 +309,7 @@ Lists should be returned via "FeatureCollections":
   ```
   * Standard Projection should be [EPSG:4326](https://spatialreference.org/ref/epsg/wgs-84/)
 
-#### Recommended Technologies to Support
+#### Recommended Supporting Technologies
 
 * [djangorestframework-gis](https://github.com/djangonauts/django-rest-framework-gis) provides support for DRF for models, views, serializers, returning valid GeoJSON
 * Use with [POSTGIS](https://postgis.net/) database and [Django PostGIS engine](https://docs.djangoproject.com/en/2.2/ref/contrib/gis/tutorial/#configure-settings-py)
