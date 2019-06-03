@@ -127,8 +127,7 @@ Resource fields that accept multiple values MUST be pluralized.
 
 A collection is a list of multiple Resources. A collection is represented as a JSON object.
 
-If a collection is larger then per_page Pagination size then it **MUST** contain a links object, containing pagination information.
-
+If a collection is larger then per_page Pagination size then it **MUST** contain pagination links, `next` and `previous`, with appropriate `null` values as well as a total `count`.
 
 ## Pagination
 
@@ -160,11 +159,11 @@ To achieve this, register a `DEFAULT_PAGINATION_CLASS` in your `local_settings/s
 ```python
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
-    "PAGE_SIZE": 10
+    "PAGE_SIZE": 50
 }
 ```
 
-PAGE_SIZE should be set to:  "TO BE DETERMINED"
+PAGE_SIZE is recommended to be between 50-100, depending on the size of resource object.
 
 ## Query Parameters
 
