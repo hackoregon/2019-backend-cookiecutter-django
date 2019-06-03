@@ -80,7 +80,7 @@ GET /v1/stops
 
 * Users will have to correctly provide routing
 
-* Django Rest Framework allows versioning to be handled [versioning](https://www.django-rest-framework.org/api-guide/versioning/) through a few methods.
+* Django Rest Framework allows [versioning](https://www.django-rest-framework.org/api-guide/versioning/) to be handled through a few methods.
 
 ## Response Codes
 
