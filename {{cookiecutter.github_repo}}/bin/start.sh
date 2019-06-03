@@ -1,9 +1,9 @@
 #! /bin/bash
-usage() { echo "Usage: $0 [-d] for a development build, [-p] for a production build" 1>&2; exit 1; }
+usage() { echo "Usage: $0 [-d] for a development build, [-p] for a production build, [-b] for bash shell" 1>&2; exit 1; }
 
 if [ $# == 0 ]; then usage; fi
 
-while getopts ":dp" opt; do
+while getopts ":dpb" opt; do
     case "$opt" in
         d)
           DEBUG=true
@@ -21,6 +21,14 @@ while getopts ":dp" opt; do
             sudo docker-compose up
           else
             docker-compose up
+          fi
+          ;;
+        b)
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose run --entrypoint bash api
+          else
+            docker-compose run --entrypoint bash api
           fi
           ;;
         *)
