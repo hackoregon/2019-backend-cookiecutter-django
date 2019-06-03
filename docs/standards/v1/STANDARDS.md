@@ -76,7 +76,7 @@ GET /v1/stops
 
 #### Recommended Supporting Technologies
 
-* Django Restframework Viewsets and Mixins should generally handle this behavior. If you are writing custom views, use built-in status codes.
+* Django Rest Framework [Viewsets](https://www.django-rest-framework.org/api-guide/viewsets/) and [Mixins](https://www.django-rest-framework.org/api-guide/generic-views/#mixins) should generally handle this behavior. If you are writing custom views, use built-in status codes.
 
 * Users will have to correctly provide routing
 
