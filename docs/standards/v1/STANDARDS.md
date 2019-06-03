@@ -152,7 +152,7 @@ A paginated response would look as follows:
     ]
 }
 ```
-#### Recommended Technologies to Support
+#### Recommended Supporting Technologies 
 
 To achieve this, register a `DEFAULT_PAGINATION_CLASS` in your `local_settings/settings.py` to apply to all apps:
 
