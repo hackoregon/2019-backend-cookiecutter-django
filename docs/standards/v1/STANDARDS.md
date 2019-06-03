@@ -127,7 +127,7 @@ Resource fields that accept multiple values MUST be pluralized.
 
 A collection is a list of multiple Resources. A collection is represented as a JSON object.
 
-If a collection is larger then per_page Pagination size then it `MUST` contain a links object, containing pagination information.
+If a collection is larger then per_page Pagination size then it **MUST** contain a links object, containing pagination information.
 
 
 ## Pagination
