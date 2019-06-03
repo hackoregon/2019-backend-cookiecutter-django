@@ -74,7 +74,7 @@ GET /v1/stops
 | Not Authorized | 403 | Error |
 | Internal Server Error | 500 | Error |
 
-#### Recommended Technologies to Support
+#### Recommended Supporting Technologies
 
 * Django Restframework Viewsets and Mixins should generally handle this behavior. If you are writing custom views, use built-in status codes.
 
