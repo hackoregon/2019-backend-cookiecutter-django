@@ -94,7 +94,7 @@ GET /v1/stops
 
 |Status Code|Description|Verbs|
 |---|---|---|
-|400 Bad Request|This status **MUST** be returned for requests that provide malformed or invalid data. Examples: malformed request body, unexpected query parameters, or invalid request fields.|GET, PATCH, POST, DELETE|
+|400 Bad Request|This status **MUST** be returned for requests that provide malformed or invalid data. Examples: malformed request body or invalid request fields.|GET, PATCH, POST, DELETE|
 |403 Forbidden|This status **MUST** be returned if the request cannot be performed by the user due to lack of permissions. Example: User with read-only permissions to a resource tries to update it. |POST, PATCH, DELETE|
 |404 Not Found|This status **MUST** be returned if the requested resource does not exist or if the user requesting the resource has insufficient permissions to view the resource.|GET, POST, PATCH, DELETE|
 
