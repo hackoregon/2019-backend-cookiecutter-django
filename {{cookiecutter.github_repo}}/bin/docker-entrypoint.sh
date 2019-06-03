@@ -9,9 +9,9 @@ set -e
 
 # Pull in environment variables values from AWS Parameter Store, and preserve the exports
 # source usage per https://stackoverflow.com/q/14742358/452120 (iff running on travis-ci)
-echo Debug: $DEBUG
+echo Debug: "${DEBUG,,}"
 
-if ! $DEBUG && ! $TRAVIS; then
+if ! "${DEBUG,,}" && ! $TRAVIS; then
   source /code/bin/get-ssm-parameters.sh
 fi
 
@@ -29,7 +29,7 @@ fi
 chmod +x *.py
 
 echo "Make migrations"
-python -Wall manage.py makemigrations
+python -Wall manage.py makemigrations {{cookiecutter.python_subpackage}}
 
 echo "Migrate"
 python -Wall manage.py migrate

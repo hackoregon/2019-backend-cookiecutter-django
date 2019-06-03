@@ -1,20 +1,13 @@
-|---------------------------------------------|
-|{{ cookiecutter.python_package_namespace }}|
+# {{ cookiecutter.python_package_namespace }}
 
-[![image](<https://badge.fury.io/py/>{{ cookiecutter.github_repo
-}}.svg)](<https://badge.fury.io/py/>{{ cookiecutter.github_repo }})
-
-[![image](<https://travis-ci.org/hackoregon/>{{
-cookiecutter.github_repo
-}}.svg?branch=master)](<https://travis-ci.org/hackoregon/>{{
-cookiecutter.github_repo }})
+![PyPI version](https://badge.fury.io/py/{{cookiecutter.github_repo}}.svg) | [![Build Status](https://travis-ci.org/hackoregon/{{cookiecutter.github_repo}}.svg?branch=master)](https://travis-ci.org/hackoregon/{{cookiecutter.github_repo}})
 
 {{ cookiecutter.project_short_description}}
 
 # Documentation
 
-The full documentation is at <<http://hackoregon.github.io/>>{{
-cookiecutter.github_repo }}
+The full documentation is at http://hackoregon.github.io/{{cookiecutter.github_repo }}
+
 
 # Features
 
@@ -22,24 +15,41 @@ cookiecutter.github_repo }}
 
 # Data Sources
 
-# Quickstart to install package in your own Django Project (Non-Hack
-Oregon Workflow)
+This API package in this repo is based on the Data Science work in the following projects:
 
-Install {{ cookiecutter.python_package_namespace }}:
+* [{{cookiecutter.data_science_repo_name}}]({{cookiecutter.data_science_repo_url}})
 
-> pip install {{ cookiecutter.python_package_namespace }}
+# Quickstart to install package in your own Django Project (Non-Hack Oregon Workflow)
 
-Add subpackages to your `INSTALLED_APPS`:
+* Install {{ cookiecutter.python_package_namespace }}:  
+  `pip install {{ cookiecutter.python_package_namespace }}`
 
-`` ` python INSTALLED_APPS = (     ...     '{{ cookiecutter.python_subpackage }}',     ... ) ```
+* Add subpackages to your `INSTALLED_APPS`:
 
-Add {{ cookiecutter.python_package_namespace }}'s URL patterns:
+  ```python
+  INSTALLED_APPS = [     
+                      ...     
+                      '{{ cookiecutter.python_subpackage }}',     
+                      ...
+                    ]
+  ```
 
-`` ` python from {{ cookiecutter.python_package_namespace }}.{{ cookiecutter.python_subpackage }} import urls as {{ cookiecutter.python_subpackage }}_urls   urlpatterns = [     ...     url(r'^', include({{ cookiecutter.python_subpackage }}_urls)),     ... ] ```
+* Add {{ cookiecutter.python_package_namespace }}'s URL patterns:
 
-Setup your database with a matching schema
+  ```python
+  from {{ cookiecutter.python_package_namespace }}.{{ cookiecutter.python_subpackage }}
+  import urls as {{ cookiecutter.python_subpackage }}_urls   
 
-Run the project
+  urlpatterns = [     
+                  ...     
+                  url(r'^', include({{ cookiecutter.python_subpackage}}_urls)),     
+                  ...
+                ]
+  ```
+
+* Setup your database with a matching schema
+
+* Run the project
 
 # Running Tests
 
@@ -52,5 +62,5 @@ using the bin/test.sh script:
 
 Tools used in rendering this package:
 
-> -   [Cookiecutter](<https://github.com/audreyr/cookiecutter>)
-> -   [cookiecutter-djangopackage](<https://github.com/pydanny/cookiecutter-djangopackage>)
+ * [Cookiecutter](https://github.com/audreyr/cookiecutter)
+ * [cookiecutter-djangopackage](https://github.com/pydanny/cookiecutter-djangopackage)

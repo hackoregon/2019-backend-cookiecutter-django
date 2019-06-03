@@ -7,12 +7,21 @@ while getopts ":dp" opt; do
     case "$opt" in
         d)
           DEBUG=true
-          sudo docker-compose run --name test-api --entrypoint /code/bin/test-entrypoint.sh   --rm
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose run --name test-api --entrypoint /code/bin/test-entrypoint.sh   --rm
+          else
+            docker-compose run --name test-api --entrypoint /code/bin/test-entrypoint.sh   --rm
+          fi
           ;;
         p)
           DEBUG=false
-          sudo docker-compose up
-          ;;
+          if [ `uname -s` = "Linux" ]
+          then
+            sudo docker-compose run --name test-api --entrypoint /code/bin/test-entrypoint.sh   --rm
+          else
+            docker-compose run --name test-api --entrypoint /code/bin/test-entrypoint.sh   --rm
+          fi
         *)
           usage
           ;;
