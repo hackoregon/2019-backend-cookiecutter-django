@@ -218,7 +218,7 @@ This will return all apps with name `the_name` OR `second_name`.
 
 This will return all apps with name `the_name` AND state `STARTED`.
 
-#### Recommended Technologies to Support
+#### Recommended Supporting Technologies
 
 * [django-filter](https://www.django-rest-framework.org/api-guide/filtering/#djangofilterbackend) and the DjangoFilterBackend is encouraged to be used.
 
