@@ -119,7 +119,7 @@ Resource Fields MUST include ONLY the following characters:
 
 Resource fields that accept multiple values MUST be pluralized.
 
-#### Recommended Technologies to Support
+#### Recommended Supporting Technologies
 
 * https://github.com/vbabiy/djangorestframework-camel-case
 
