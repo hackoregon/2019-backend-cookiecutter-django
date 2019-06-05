@@ -449,3 +449,6 @@ Projects should include the following documentation:
 * Formatted [docstrings](https://www.django-rest-framework.org/api-guide/schemas/#schemas-as-documentation) on classes and methods
 * Swagger UI frontend
 * Published OpenAPI schema
+
+
+*More Information regarding documentation and recommended technologies will be added*
