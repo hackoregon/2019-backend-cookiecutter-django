@@ -125,13 +125,142 @@ Resource fields that accept multiple values MUST be pluralized.
 
 ## Collections
 
-A collection is a list of multiple Resources. A collection is represented as a JSON object.
+A collection is a list of multiple Resources.
 
-If a collection is larger then per_page Pagination size then it **MUST** contain pagination links, `next` and `previous`, with appropriate `null` values as well as a total `count`.
+A collection is represented as a JSON object.
+
+A collection object **MUST** contain:
+
+* `count` - Total count of all Resources
+* `results` - Array of individual resources returned
+
+If a collection is paginated, then it **MUST** contain pagination links, `next` and `previous`, with appropriate `null` values (See [Pagination](#Pagination)).
+
+```JSON
+
+{
+  "count": 49759,
+  "next": "http://service.civicpdx.org/housing-affordability/api/harvardjchs/?limit=10&offset=10",
+  "previous": null,
+  "results": [
+    {
+      "id": 848,
+      "date": "1996-01-01",
+      "dataPoint": "Total",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "98574707.36667",
+      "rank": 5,
+      "total": 5
+    },
+    {
+      "id": 844,
+      "date": "1996-01-01",
+      "dataPoint": "Native Born, White Non-Hispanic",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "73497839.33333",
+      "rank": 4,
+      "total": 5
+    },
+    {
+      "id": 845,
+      "date": "1996-01-01",
+      "dataPoint": "Native Born, Minority",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "15688421.00000",
+      "rank": 3,
+      "total": 5
+    },
+    {
+      "id": 847,
+      "date": "1996-01-01",
+      "dataPoint": "Foreign-Born Non Citizen",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "5647456.86667",
+      "rank": 2,
+      "total": 5
+    },
+    {
+      "id": 846,
+      "date": "1996-01-01",
+      "dataPoint": "Foreign-Born Citizen",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "3740990.16667",
+      "rank": 1,
+      "total": 5
+    },
+    {
+      "id": 853,
+      "date": "2016-01-01",
+      "dataPoint": "Total",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "124574774.16667",
+      "rank": 5,
+      "total": 5
+    },
+    {
+      "id": 849,
+      "date": "2016-01-01",
+      "dataPoint": "Native Born, White Non-Hispanic",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "80347957.66667",
+      "rank": 4,
+      "total": 5
+    },
+    {
+      "id": 850,
+      "date": "2016-01-01",
+      "dataPoint": "Native Born, Minority",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "25923476.00000",
+      "rank": 3,
+      "total": 5
+    },
+    {
+      "id": 851,
+      "date": "2016-01-01",
+      "dataPoint": "Foreign-Born Citizen",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "9693821.73333",
+      "rank": 2,
+      "total": 5
+    },
+    {
+      "id": 852,
+      "date": "2016-01-01",
+      "dataPoint": "Foreign-Born Non Citizen",
+      "dataType": "All Households by Nativity",
+      "source": "W-2",
+      "valueType": "count",
+      "value": "8609518.76667",
+      "rank": 1,
+      "total": 5
+    }
+  ]
+}
+
+```
 
 ## Pagination
 
-Pagination should be used by Collections to limit the number of resources returned at a time.
+Pagination **SHOULD** be used by Collections to limit the number of resources returned at a time.
 
 Pagination is requested by a client through the use of query parameters.
 
@@ -152,7 +281,7 @@ A paginated response would look as follows:
     ]
 }
 ```
-#### Recommended Supporting Technologies 
+#### Recommended Supporting Technologies
 
 To achieve this, register a `DEFAULT_PAGINATION_CLASS` in your `local_settings/settings.py` to apply to all apps:
 
