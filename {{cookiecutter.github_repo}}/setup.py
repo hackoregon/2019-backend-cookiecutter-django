@@ -57,7 +57,7 @@ setup(
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
     url='https://github.com/hackoregon/{{ cookiecutter.github_repo }}',
-    packages=setuptools.find_namespace_packages(include=['namespace.*']),
+    packages=setuptools.find_namespace_packages(include=['{{ cookiecutter.python_package_namespace }}.*']),
     include_package_data=True,
     license="MIT",
     zip_safe=False,
