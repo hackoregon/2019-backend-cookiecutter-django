@@ -6,4 +6,4 @@
 
 pytest
 bumpversion
-mkdocs
+pydoc-markdown
