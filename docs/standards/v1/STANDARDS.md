@@ -8,7 +8,7 @@ We aim to also provide the highest level of interoperability between our APIs. B
 
 ### API Technologies
 * **HTTPS:** All API requests must be made over HTTPS.
-* **JSON:** All API request and response bodies will be JSON.
+* **JSON:** All API request and response bodies will be JSON. They will follow the [JSON API spec(https://jsonapi.org/format/)
 
 ## Requests
 
@@ -299,6 +299,7 @@ PAGE_SIZE is recommended to be between 50-100, depending on the size of resource
 Query Parameters **MUST** include **ONLY** the following characters:
 
 * `a-z` (lowercase only)
+* `0-9` (all numbers)
 * `_` (underscore)
 
 Query parameters that accept multiple values **MUST** be pluralized.
