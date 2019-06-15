@@ -315,7 +315,7 @@ Multiple values:
  `GET /v1/apps?names=firstname,secondname`
 
 Single value with comma:
- `GET /v1/apps?names=comma%2Cname`
+ `GET /v1/apps?address=Portland%2cOR,Vancouver%2cWA `
 
 ## Filtering
 
