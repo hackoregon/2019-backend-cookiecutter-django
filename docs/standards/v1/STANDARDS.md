@@ -314,7 +314,7 @@ Single value:
 Multiple values:
  `GET /v1/apps?names=firstname,secondname`
 
-Single value with comma:
+Multiple values with double encoded commas:
  `GET /v1/apps?address=Portland%2cOR,Vancouver%2cWA `
 
 ## Filtering
