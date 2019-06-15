@@ -7,7 +7,11 @@ router = DefaultRouter()
 
 api_title = 'Hack Oregon {{cookiecutter.hack_oregon_team}} {{cookiecutter.year}} API'
 
-schema_view = get_swagger_view(title=api_title)
+class JSONOpenAPIRenderer(renderers.OpenAPIRenderer):
+    media_type = 'application/json'
+
+schema_view = get_swagger_view(title=api_title,
+                               renderer_classes=[JSONOpenAPIRenderer])
 
 
 urlpatterns = [
