@@ -349,7 +349,7 @@ This will return all apps with name `the_name` AND state `STARTED`.
 
 * [django-filter](https://www.django-rest-framework.org/api-guide/filtering/#djangofilterbackend) and the DjangoFilterBackend is encouraged to be used.
 
-* Create a [`get_schema_fields(self, view)`](https://www.django-rest-framework.org/api-guide/filtering/#pagination-schemas) method on a view in which you need to add fields to schema autogeneration (uses [CoreAPI](https://www.django-rest-framework.org/api-guide/schemas/#core-api)). May need to do this to add [pagination](#pagination) filters.
+* Create a [`get_schema_fields(self, view)`](https://www.django-rest-framework.org/api-guide/filtering/#pagination-schemas) method on a view to add fields to schema autogeneration (uses [CoreAPI](https://www.django-rest-framework.org/api-guide/schemas/#core-api)). May need to do this to add [pagination](#pagination) filters.
 
 
 ## Errors
