@@ -38,12 +38,14 @@ To generate a new repo:
 
     $ cookiecutter gh:hackoregon/2019-backend-cookiecutter-django --checkout BRANCH
 
-You can leave out the `--checkout BRANCH` if checking out from MASTER.
+You can leave out the `--checkout BRANCH` if checking out from MASTER. Projects should be created from the master branch
 
 You'll be prompted for some questions, answer them, then it will create
 a backend-cookiecutter-django with your new package.
 
 At this point, you are ready to connect with an external git and start coding.
+
+Create a new github repo. For Hack Oregon projects you will create this repo within the Hack Oregon organization. (This will match the `github_repo` variable used in cookiecutter template)
 
 ## API Standards
 
@@ -64,7 +66,9 @@ You will be asked the following information when creating a project:
       "python_subpackage": "toad",
       "project_short_description": "Your project description goes in here",
       "version": "0.1.0",
-      "gis_project": "True"
+      "gis_project": "True",
+      "data_science_repo_url": "URL of repo where data science work is contained",
+      "data_science_repo_name": "Name of repo where data science work is contained"
     }
 
 ## Explanation
@@ -86,7 +90,9 @@ You will be asked the following information when creating a project:
   - version: initial version of the app, should be 0.1.0 if new project
   - gis_project: Boolean as to whether to include
     django-restframework-gis package in setup.py dependencies
-
+  - data_science_repo_url: URL of repo where data science work is contained
+  - data_science_repo_name: Name of repo where data science work is contained
+  
 # Tests
 
 To run tests on the Cookiecutter generation, please install TOX, which

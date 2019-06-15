@@ -51,12 +51,18 @@ This API package in this repo is based on the Data Science work in the following
 
 * Run the project
 
+## API Standards
+
+Hack Oregon API developers should refer to our [Current API Standards Guide](docs/standards/v1/STANDARDS.md) for guidance on developing APIs for Hack Oregon.
+
 # Running Tests
 
 This repo uses pytest and pytest-django to run tests.
 
 For project development work, tests will be run in docker container
 using the bin/test.sh script:
+
+`./bin/test.sh -d`
 
 # Credits
 
