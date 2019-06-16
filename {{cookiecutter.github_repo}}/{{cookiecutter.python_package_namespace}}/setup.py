@@ -49,7 +49,7 @@ setup(
     long_description=readme + '\n\n' + history,
     long_description_content_type="text/markdown",
     author='{{cookiecutter.full_name}}',
-    author_email='{{cookiecutter.fullemail_name}}',
+    author_email='{{cookiecutter.email}}',
     url='https://github.com/hackoregon/{{cookiecutter.github_repo}}',
     packages=setuptools.find_packages(),
     include_package_data=True,
