@@ -45,9 +45,8 @@ history = open('CHANGELOG.md').read()
 setup(
     name='{{cookiecutter.python_package_namespace}}',
     version=version,
-    description="{{cookiecutter.description}}",
+    description="{{cookiecutter.project_short_description}}",
     long_description=readme + '\n\n' + history,
-#    long_description="long description",
     long_description_content_type="text/markdown",
     author='{{cookiecutter.full_name}}',
     author_email='{{cookiecutter.fullemail_name}}',
