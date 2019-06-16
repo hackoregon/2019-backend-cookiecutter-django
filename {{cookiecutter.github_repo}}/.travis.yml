@@ -1,6 +1,52 @@
-# deploy:
-#   provider: pypi
-#   user: $PYPI_USER
-#   password: $PYPI_PASSWORD
-#   on:
-#     tags: true
+language: python
+python:
+  - "3.6"
+cache: pip
+services:
+  - docker
+
+jobs:
+  include:
+
+    - stage: Test "Development" Docker Image
+      if: tag IS present
+      install: skip
+      script: bin/build.sh -d && bin/test.sh -d     
+      # (_identical_ to production build except for -e
+      # local directory package install instead of PyPI.org)
+
+    - stage: GitHub Release 
+      install: skip
+      script: skip      
+      deploy:
+        provider: releases
+        skip_cleanup: true
+        api_key:
+          secure: oaoRtTE3Ryr9jKu83D5PxoQB2ufJ2fYzGnG2qKO384KFHY4Qbs7iCEsa4cehysi3VV35eRtvDx+KL283grVcbFIIVgr90V6RHJRQzmL77tsTO3sU5Uqm8IDJTD9gmidGS7piOdjOeytxh3iljesRxTmbkLMOyxMADLD/IIfD/aEIvs+gNt0r/8DsTYh7um5r+zxUV4MeXKRs5EOPKoZ5oL3TJ8kIdHeFrlzf8QW1AHmBxk6dzPQoSmBfPZyNkhR9+99HvMoDFRC09PDZbzKeCGFNOAWrSkexAqb3nELr+F3CDmvpHn8nmeV16fza1KpRlgEI/qLAVQbuSs9n55e9J/Xj39wUYV5vQ3SJZBx+fowEG3vAwlh7I7jJxDveiLJFxCb8l40igPJ5G17AowZIylILRAmslXDFcAFpLmMKiyjqHyNtc9R8L0wmnlriuRMF8PaG3wrA/1CitjWFMv58drlFBROSR6mzdcYktZVYUoz8XEYlGeyvblt+pqVgSDs6VYu6sb1WMTxhoO4uWMvAqvVjPuwLGp1wg6KfhkYSmTFFu7ySTjIsYf6CV9Q1ZGkhRBSlWQnYFrESeO8yuFiVxUtveTzZk8WQI8S75cfxWl55nd76HtrBRf4Rz1I2Sjt4hS3Ast67VsHJ0DzekLA7G3vDVQbW5s+qJx+jLU3NBHU=
+        on:
+          tags: true     
+    
+    - stage: PyPI Package
+      install: pip install --upgrade pip
+      script: skip      
+      before_deploy: cd {{cookiecutter.python_package_namespace}} && echo __version__ = \'"$TRAVIS_TAG"\' > VERSION
+      deploy:
+        provider: pypi
+        skip_cleanup: true        
+        user: nam20485        
+        password: 
+          secure: I//IEfBaPhLruf7Jin/SJZJlcgCR3WBgW1mLQa2jVZX2db1jdn0dhzOSzFRNx+2I9iQu1I+lZexkp5tow/b2garuWCEkZbsmVtCty3zvjB8KtjS1EDnafGC15hz7WZEI8MwSsY2Ydwaj2qy43JvsmcBAaA/Xyp82PUXwBCdWL46IhdpQm/is9s60SUvUkfppkj3lOKO2lDreiEUrpUCJKvN51UETcL5Dz7eWE+Z9cQfzzqNzwjLXX2ufP40+VwsU6oZNf0xsG9EW7ZNP1mjHWsqc5AOZHPyoJ+gMULWtWjUwjfxJPNyBu36PPTU+H90Arkc8JGsSg/1SFOdnaokJDhnMPjT5v4506L3qa21vXULhMfzrWdWZ4Ot32rB1N2MvK0InCva1NxUgowcClu2g7Ey6S/KkQa/qlcrqOciJvE2tuIvvmbo5dw7DlLlIZXXKCADLDPktSiPKgE+zzTng54nlr3xm0nNA1Pko2Ts3zjdguedW2iF5rxeAdyqrCCBc+Xr1pVxkHIqV6syvByilCn95WJtp5yYDDPmY6Npza7wSavOJcrQhk5QneiKD549grGxxpwPLRSE6wI6Ae4Els6ucZgTeP99r2OaAnesNgujMffFStMTwaSa3QbKT0ttwf3B/q3b2UViiMHu8NWyuznQ/pVvclEwUOYpOxprDF7I=
+        distributions: sdist bdist_wheel
+        on:
+          tags: true
+    
+    - stage: Docker Image
+      install: skip
+      script: bin/build.sh -p && bin/test.sh -p
+      before_deploy: pip install awscli 
+      deploy:
+        provider: script
+        skip_cleanup: true 
+        script: bin/deploy.sh
+        on:
+          tags: true

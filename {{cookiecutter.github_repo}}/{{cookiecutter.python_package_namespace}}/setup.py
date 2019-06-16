@@ -3,21 +3,15 @@
 import os
 import re
 import sys
+import setuptools
 
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-{%- set license_classifiers = {
-    'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
-    'BSD': 'License :: OSI Approved :: BSD License',
-    'ISCL': 'License :: OSI Approved :: ISC License (ISCL)',
-    'MIT': 'License :: OSI Approved :: MIT License',
-} %}
-
 def get_version(*file_paths):
-    """Retrieves the version from {{ cookiecutter.python_package_namespace }}/VERSION"""
+    """Retrieves the version from {{cookiecutter.python_package_namespace}}/VERSION"""
     filename = os.path.join(os.path.dirname(__file__), *file_paths)
     version_file = open(filename).read()
     version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
@@ -49,24 +43,23 @@ readme = open('README.md').read()
 history = open('CHANGELOG.md').read()
 
 setup(
-    name='{{ cookiecutter.python_package_namespace }}',
+    name='{{cookiecutter.python_package_namespace}}',
     version=version,
-    description="""{{ cookiecutter.project_short_description }}""",
+    description="{{cookiecutter.description}}",
     long_description=readme + '\n\n' + history,
-    long_description_content_type='text/x-md',
-    author='{{ cookiecutter.full_name }}',
-    author_email='{{ cookiecutter.email }}',
-    url='https://github.com/hackoregon/{{ cookiecutter.github_repo }}',
-    packages=setuptools.find_namespace_packages(include=['namespace.*']),
+#    long_description="long description",
+    long_description_content_type="text/markdown",
+    author='{{cookiecutter.full_name}}',
+    author_email='{{cookiecutter.fullemail_name}}',
+    url='https://github.com/hackoregon/{{cookiecutter.github_repo}}',
+    packages=setuptools.find_packages(),
     include_package_data=True,
     license="MIT",
     zip_safe=False,
-    keywords='{{ cookiecutter.github_repo }}',
+    keywords='{{cookiecutter.github_repo}}',
     install_requires=[
         'djangorestframework',
-        {%- if cookiecutter.gis_project %}
         'djangorestframework-gis'
-        {%- endif %}
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

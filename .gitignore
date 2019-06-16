@@ -106,3 +106,4 @@ venv.bak/
 **/.DS_Store
 
 staticfiles/
+{{cookiecutter.github_repo}}/2019-backend-cookiecutter-django.code-workspace
