@@ -10,7 +10,7 @@ jobs:
 
     - stage: Test "Development" Docker Image
       if: tag IS present
-      install: skip
+      install: git clone https://github.com/hackoregon/deploy-scripts.git && cp deploy-scripts/bin/* bin/ 
       script: bin/build.sh -d && bin/test.sh -d     
       # (_identical_ to production build except for -e
       # local directory package install instead of PyPI.org)
@@ -41,7 +41,7 @@ jobs:
           tags: true
     
     - stage: Docker Image
-      install: skip
+      install: git clone https://github.com/hackoregon/deploy-scripts.git && cp deploy-scripts/bin/* bin/ 
       script: bin/build.sh -p && bin/test.sh -p
       before_deploy: pip install awscli 
       deploy:
