@@ -22,8 +22,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_gis',
     'rest_framework_swagger',
+    'health_check',                             # required
+    'health_check.db',                          # stock Django health checkers
+    'health_check.storage',
+    'health_check.contrib.psutil',              # disk and memory utilization; requires psutil
     '{{cookiecutter.python_subpackage}}'
 ]
+
+HEALTH_CHECK = {
+    'DISK_USAGE_MAX': 90,  # percent
+    'MEMORY_MIN': 100,    # in MB
+}
 
 DATABASE_ROUTERS = ['backend.router.ModelDatabaseRouter', ]
 
