@@ -2,4 +2,4 @@
 -r common.txt
 
 # Import project package from repository
-{{cookiecutter.python_package_namespace}}
+-e ./{{cookiecutter.python_package_namespace}}
