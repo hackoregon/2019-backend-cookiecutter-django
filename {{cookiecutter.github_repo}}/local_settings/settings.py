@@ -38,4 +38,4 @@ DATABASE_ROUTERS = ['backend.router.ModelDatabaseRouter', ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = '/{{project_root_path}}/static/'
+STATIC_URL = '/{{cookiecutter.project_root_path}}/static/'
