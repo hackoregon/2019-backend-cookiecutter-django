@@ -1,6 +1,49 @@
-# deploy:
-#   provider: pypi
-#   user: $PYPI_USER
-#   password: $PYPI_PASSWORD
-#   on:
-#     tags: true
+language: python
+python:
+  - "3.6"
+services:
+  - docker
+
+jobs:
+  include:
+
+    - stage: Test "Development" Docker Image
+      if: tag IS present
+      script: scripts/build-run/build.sh -d
+        # (_identical_ to production build except for -e
+      # local directory package install indstead of PyPI.org)
+
+    # - stage: GitHub Release
+    #   install: skip
+    #   script: skip
+    #   deploy:
+    #     provider: releases
+    #     skip_cleanup: true
+    #     api_key:
+    #       secure:<add encrypted key>
+    #     on:
+    #       tags: true
+
+    # - stage: PyPI Package
+    #   install: pip install --upgrade pip
+    #   script: skip
+    #   before_deploy: cd {{cookiecutter.python_package_name}} && echo __version__ = \'"$TRAVIS_TAG"\' > VERSION
+    #   deploy:
+    #     provider: pypi
+    #     skip_cleanup: true
+    #     user: <add hacko pypi user>
+    #     password:
+    #       secure:<add encrypted key>
+    #     distributions: sdist bdist_wheel
+    #     on:
+    #       tags: true
+    - stage: Docker Image
+      install: scripts/deploy/fetch-scripts.sh
+      script: scripts/build-run/build.sh -p
+      before_deploy: pip install awscli
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: scripts/deploy/deploy.sh
+        on:
+          tags: true
