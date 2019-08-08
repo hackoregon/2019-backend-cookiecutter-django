@@ -9,19 +9,15 @@ set -e
 
 # Pull in environment variables values from AWS Parameter Store, and preserve the exports
 # source usage per https://stackoverflow.com/q/14742358/452120 (iff running on travis-ci)
-echo Debug: "${DEBUG,,}"
+if [ -z ${DEBUG+x} ]; then echo "DEBUG var is unset, setting to False" && export DEBUG=false ; else echo "var is set to '$DEBUG'"; fi
 
-if ! "${DEBUG,,}" && ! $TRAVIS; then
-  source /code/bin/get-ssm-parameters.sh
-fi
+if [ -z ${TRAVIS+x} ]; then echo "DEBUG var is unset, setting to False" && export TRAVIS=false ; else echo "var is set to '$TRAVIS'"; fi
 
-if [ "$POSTGRES_NAME" ]; then
-  export PGPASSWORD=$POSTGRES_PASSWORD
-  until psql -h "$POSTGRES_HOST" -U "$POSTGRES_USER" -p "$POSTGRES_PORT" -d postgres -c '\q'
-  do
-    >&2 echo "Postgres is unavailable - sleeping"
-    sleep 5
-  done
+echo Debug: $DEBUG
+echo Travis: $TRAVIS
+
+if [ $DEBUG = "false" ] && [ $TRAVIS = "false" ]; then
+  source /code/src_files/scripts/deploy/get-ssm-parameters.sh
 fi
 
 >&2 echo "Postgres is up"
