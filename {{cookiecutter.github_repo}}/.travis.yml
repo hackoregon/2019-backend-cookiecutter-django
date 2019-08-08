@@ -27,7 +27,7 @@ jobs:
     # - stage: PyPI Package
     #   install: pip install --upgrade pip
     #   script: skip
-    #   before_deploy: cd {{cookiecutter.python_package_name}} && echo __version__ = \'"$TRAVIS_TAG"\' > VERSION
+    #   before_deploy: cd {{ cookiecutter.python_package_namespace }} && echo __version__ = \'"$TRAVIS_TAG"\' > VERSION
     #   deploy:
     #     provider: pypi
     #     skip_cleanup: true
