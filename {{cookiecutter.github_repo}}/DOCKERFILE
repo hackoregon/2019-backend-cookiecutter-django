@@ -15,8 +15,6 @@ RUN if [ "$DEBUG" = true  ] ; then pip install -r development.txt ; else pip ins
 
 RUN python
 
-RUN mkdir src_files
-
 # src_files is home to all the django files that "wrap" the django apps installed by pip
 RUN mkdir src_files
 
