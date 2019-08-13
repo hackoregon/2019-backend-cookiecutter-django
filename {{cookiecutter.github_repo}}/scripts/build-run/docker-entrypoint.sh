@@ -11,7 +11,7 @@ set -e
 # source usage per https://stackoverflow.com/q/14742358/452120 (iff running on travis-ci)
 if [ -z ${DEBUG+x} ]; then echo "DEBUG var is unset, setting to False" && export DEBUG=false ; else echo "var is set to '$DEBUG'"; fi
 
-if [ -z ${TRAVIS+x} ]; then echo "DEBUG var is unset, setting to False" && export TRAVIS=false ; else echo "var is set to '$TRAVIS'"; fi
+if [ -z ${TRAVIS+x} ]; then echo "TRAVIS var is unset, setting to False" && export TRAVIS=false ; else echo "var is set to '$TRAVIS'"; fi
 
 echo Debug: $DEBUG
 echo Travis: $TRAVIS
