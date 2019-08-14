@@ -4,7 +4,7 @@
   "github_username": "yourname",
   "hack_oregon_team": "Transportation Systems",
   "year": "2019",
-  "project_root_path": "{{ cookiecutter.hack_oregon_team.lower().split(' ') }}",
+  "project_root_path": "{{ cookiecutter.hack_oregon_team.lower().split(' ')[0] }}",
   "github_repo": "{{ cookiecutter.year }}-{{ cookiecutter.hack_oregon_team|lower|replace(' ', '-') }}-backend",
   "python_package_namespace": "hackoregon_{{ cookiecutter.hack_oregon_team|lower|replace(' ', '_') }}",
   "python_subpackage": "toad",
