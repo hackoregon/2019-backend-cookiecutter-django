@@ -18,6 +18,7 @@ def context():
       "hack_oregon_team": "Transportation Systems",
       "year": "2019",
       "github_repo": "2019-transportation-systems-backend",
+      "project_root_path": "transportation",
       "python_package_namespace": "hackoregon_transportation_systems",
       "python_subpackage": "toad",
       "project_short_description": "Your project description goes in here",
