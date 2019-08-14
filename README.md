@@ -59,7 +59,7 @@ You will be asked the following information when creating a project:
       "github_username": "yourname",
       "hack_oregon_team": "Transportation Systems",
       "year": "2019",
-      "project_root_path":"transportation2019",
+      "project_root_path":"transportation",
       "github_repo": "2019-transportation-systems-backend",
       "python_package_namespace": "hackoregon_transportation_systems",
       "python_subpackage": "toad",
