@@ -59,6 +59,7 @@ You will be asked the following information when creating a project:
       "github_username": "yourname",
       "hack_oregon_team": "Transportation Systems",
       "year": "2019",
+      "project_root_path":"transportation",
       "github_repo": "2019-transportation-systems-backend",
       "python_package_namespace": "hackoregon_transportation_systems",
       "python_subpackage": "toad",
@@ -74,6 +75,8 @@ You will be asked the following information when creating a project:
   - email: Your email address
   - github_username: Your github username
   - hack_oregon_team: Canonical name for the Hack Oregon Project Team,
+  - year: Year project is worked on
+  - project_root_path - the url path project will be served on (after host name)
     ie Transportation Systems or Sandbox
   - github_repo: naming of repo within the hackoregon organization, ie:
     2019-transportation-systems-backend

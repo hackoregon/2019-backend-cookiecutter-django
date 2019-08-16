@@ -5,16 +5,25 @@ ARG DEBUG=false
 
 WORKDIR /code
 
+# Put all requirements files in the workdir
 COPY /requirements/* /code/
+
+# Copy the django apps to be installed locally via pip
 COPY {{cookiecutter.python_package_namespace}} /code/{{cookiecutter.python_package_namespace}}
 
 RUN if [ "$DEBUG" = true  ] ; then pip install -r development.txt ; else pip install -r production.txt ; fi
 
 RUN python
 
+# src_files is home to all the django files that "wrap" the django apps installed by pip
 RUN mkdir src_files
 
-COPY bin /code/src_files/bin/
+# Copy all scripts and make sure they are executable
+COPY scripts /code/src_files/scripts/
 RUN chmod +x *.py
 
-ENTRYPOINT [ "/code/src_files/bin/docker-entrypoint.sh" ]
+# Copy settings and staticfiles to make sure they are baked into the container
+# rather than always expecting them to be mounted at runtime.
+COPY local_settings /code/src_files/local_settings
+
+ENTRYPOINT [ "/code/src_files/scripts/build-run/docker-entrypoint.sh" ]

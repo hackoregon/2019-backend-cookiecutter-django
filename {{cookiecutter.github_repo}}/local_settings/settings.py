@@ -36,17 +36,6 @@ HEALTH_CHECK = {
 
 DATABASE_ROUTERS = ['backend.router.ModelDatabaseRouter', ]
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-#         'NAME': os.environ.get('POSTGRES_NAME'),
-#         'USER': os.environ.get('POSTGRES_USER'),
-#         'HOST': os.environ.get('POSTGRES_HOST'),
-#         'PORT': os.environ.get('POSTGRES_PORT')
-#     }
-# }
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = '/{{cookiecutter.python_package_namespace}}/static/'
+STATIC_URL = '/{{cookiecutter.project_root_path}}/static/'

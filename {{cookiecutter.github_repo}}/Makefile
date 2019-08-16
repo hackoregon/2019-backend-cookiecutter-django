@@ -33,6 +33,9 @@ lint: ## check style with flake8
 test: ## run tests quickly with the default Python
 	pytest tests
 
+version:
+	bumpversion patch --config-file=./{{ cookiecutter.python_package_namespace }}/setup.cfg
+
 # coverage: ## check code coverage quickly with the default Python
 # 	coverage run --source {{ cookiecutter.python_package_namespace }}/{{ cookiecutter.python_subpackage}} pytest tests
 # 	coverage report -m

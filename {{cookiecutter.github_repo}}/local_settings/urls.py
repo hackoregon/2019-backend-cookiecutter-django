@@ -16,3 +16,5 @@ urlpatterns = [
     url(r'^{{ cookiecutter.hack_oregon_team|lower|replace(' ', '-') }}/docs/', include_docs_urls(title=api_title)),
     url(r'^{{ cookiecutter.hack_oregon_team|lower|replace(' ', '-') }}/health/', include('health_check.urls'))
 ]
+
+url(r'^$', schema_view)
